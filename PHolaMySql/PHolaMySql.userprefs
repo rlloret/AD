@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PHolaMySql/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PHolaMySql/Menu.cs">
     <Files>
-      <File FileName="PHolaMySql/Program.cs" Line="53" Column="4" />
+      <File FileName="PHolaMySql/Program.cs" Line="49" Column="5" />
+      <File FileName="PHolaMySql/Menu.cs" Line="25" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
