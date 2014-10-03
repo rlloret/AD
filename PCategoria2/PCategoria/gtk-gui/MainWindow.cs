@@ -5,11 +5,14 @@ public partial class MainWindow
 	private global::Gtk.UIManager UIManager;
 	private global::Gtk.Action addAction;
 	private global::Gtk.Action refreshAction;
-	private global::Gtk.Action deleteAction;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.Toolbar toolbar1;
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
 	private global::Gtk.TreeView treeView;
+	private global::Gtk.VBox vbox2;
+	private global::Gtk.Label cartel;
+	private global::Gtk.Entry texto;
+	private global::Gtk.Fixed fixed2;
 
 	protected virtual void Build ()
 	{
@@ -21,9 +24,6 @@ public partial class MainWindow
 		w1.Add (this.addAction, null);
 		this.refreshAction = new global::Gtk.Action ("refreshAction", null, null, "gtk-refresh");
 		w1.Add (this.refreshAction, null);
-		this.deleteAction = new global::Gtk.Action ("deleteAction", null, null, "gtk-delete");
-		this.deleteAction.Sensitive = false;
-		w1.Add (this.deleteAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -34,7 +34,7 @@ public partial class MainWindow
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='addAction' action='addAction'/><toolitem name='refreshAction' action='refreshAction'/><toolitem name='deleteAction' action='deleteAction'/></toolbar></ui>");
+		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='addAction' action='addAction'/><toolitem name='refreshAction' action='refreshAction'/></toolbar></ui>");
 		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
 		this.toolbar1.Name = "toolbar1";
 		this.toolbar1.ShowArrow = false;
@@ -55,16 +55,53 @@ public partial class MainWindow
 		this.vbox1.Add (this.GtkScrolledWindow);
 		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.GtkScrolledWindow]));
 		w4.Position = 1;
+		// Container child vbox1.Gtk.Box+BoxChild
+		this.vbox2 = new global::Gtk.VBox ();
+		this.vbox2.Name = "vbox2";
+		this.vbox2.Spacing = 6;
+		// Container child vbox2.Gtk.Box+BoxChild
+		this.cartel = new global::Gtk.Label ();
+		this.cartel.Name = "cartel";
+		this.cartel.LabelProp = global::Mono.Unix.Catalog.GetString ("Introduce datos");
+		this.vbox2.Add (this.cartel);
+		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.cartel]));
+		w5.Position = 0;
+		w5.Expand = false;
+		w5.Fill = false;
+		// Container child vbox2.Gtk.Box+BoxChild
+		this.texto = new global::Gtk.Entry ();
+		this.texto.CanFocus = true;
+		this.texto.Name = "texto";
+		this.texto.IsEditable = true;
+		this.texto.InvisibleChar = '•';
+		this.vbox2.Add (this.texto);
+		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.texto]));
+		w6.Position = 1;
+		w6.Expand = false;
+		w6.Fill = false;
+		// Container child vbox2.Gtk.Box+BoxChild
+		this.fixed2 = new global::Gtk.Fixed ();
+		this.fixed2.Name = "fixed2";
+		this.fixed2.HasWindow = false;
+		this.vbox2.Add (this.fixed2);
+		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.fixed2]));
+		w7.Position = 2;
+		w7.Expand = false;
+		w7.Fill = false;
+		this.vbox1.Add (this.vbox2);
+		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.vbox2]));
+		w8.Position = 2;
+		w8.Expand = false;
+		w8.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
 		this.DefaultWidth = 400;
-		this.DefaultHeight = 557;
+		this.DefaultHeight = 648;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.addAction.Activated += new global::System.EventHandler (this.OnAddActionActivated);
 		this.refreshAction.Activated += new global::System.EventHandler (this.OnRefreshActionActivated);
-		this.deleteAction.Activated += new global::System.EventHandler (this.OnDeleteActionActivated);
 	}
 }

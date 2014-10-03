@@ -16,7 +16,6 @@ public partial class MainWindow: Gtk.Window
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
-
 		treeView.AppendColumn ("Id", new CellRendererText (), "text", 0);
 		treeView.AppendColumn ("Nombre", new CellRendererText (), "text", 1);
 
@@ -25,14 +24,6 @@ public partial class MainWindow: Gtk.Window
 		treeView.Model = listStore; 
 
 		LecturaDeDatos ();
-
-	//	treeView.Selection.Changed += selectionChanged; /*Cuando se produce el evento changed llama a la funcion */
-	//	treeView.Selection.Mode = SelectionMode.Multiple; /*Multiple selección en el treeView*/
-		treeView.Selection.Changed += delegate {
-
-			deleteAction.Sensitive = treeView.Selection.CountSelectedRows() > 0;/*Lo que devuelve el CountSR cambia el estado de Sensitive*/
-	};
-
 
 	}
 
@@ -76,10 +67,15 @@ public partial class MainWindow: Gtk.Window
 	{
 		//listStore.AppendValues ("1", "uno");
 
-		mySqlCommand.CommandText = string.Format("insert into categoria (nombre) values ('{0}')","Nuevo "+ DateTime.Now);
-
+		//mySqlCommand.CommandText = string.Format("insert into categoria (nombre) values ('{0}')","Nuevo "+ DateTime.Now);
+	
+		mySqlCommand.CommandText = string.Format("insert into categoria (nombre) values ('{0}')",texto.Text);
 
 		mySqlCommand.ExecuteNonQuery ();//Si el insert no funciona, se lanza una excepción
+
+		texto.Text = "";
+		listStore.Clear();
+		LecturaDeDatos ();
 
 	}
 
@@ -87,46 +83,6 @@ public partial class MainWindow: Gtk.Window
 	{
 		listStore.Clear();
 		LecturaDeDatos ();
-	}
-
-	protected void OnDeleteActionActivated (object sender, EventArgs e)
-	{
-
-		if (!ConfirmDelete())
-			return;
-
-			TreeIter treeIter;/*Apunta la posición del arbol*/
-			treeView.Selection.GetSelected (out treeIter);/*Devuelve la posicion*/
-			object id = listStore.GetValue (treeIter, 0);/*columna 0 de la fila seleccionada*/
-
-
-			mySqlCommand.CommandText = string.Format ("delete from categoria where id ={0}", id);
-			mySqlCommand.ExecuteNonQuery ();
-
-
-	}
-
-	public bool ConfirmDelete(){
-
-		return Confirm ("Realmente quieres eliminar?");
-	}
-
-	public bool Confirm(String text){
-
-		MessageDialog messageDialog = new MessageDialog (/*Ventana de confirmación de la eliminación*/
-		      this,
-		      DialogFlags.Modal,
-		      MessageType.Question,
-		      ButtonsType.YesNo,
-		      text
-		      );
-
-
-		ResponseType response = (ResponseType)messageDialog.Run ();
-		messageDialog.Destroy ();
-
-
-		return response == ResponseType.Yes;
 	}
 
 }
