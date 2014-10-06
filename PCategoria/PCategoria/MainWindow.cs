@@ -101,7 +101,7 @@ public partial class MainWindow: Gtk.Window
 
 
 			mySqlCommand.CommandText = string.Format ("delete from categoria where id ={0}", id);
-			mySqlCommand.ExecuteNonQuery ();
+			mySqlCommand.ExecuteNonQuery ();/*Devuelve las filas afectadas por el ultimo comando*/
 
 
 	}
@@ -121,7 +121,7 @@ public partial class MainWindow: Gtk.Window
 		      text
 		      );
 
-
+		messageDialog.Title = "Estas seguro";
 		ResponseType response = (ResponseType)messageDialog.Run ();
 		messageDialog.Destroy ();
 
