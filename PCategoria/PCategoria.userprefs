@@ -1,13 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PCategoria/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PSerpisAd/DbCommandExtensions.cs">
     <Files>
-      <File FileName="PCategoria/MainWindow.cs" Line="121" Column="13" />
+      <File FileName="PCategoria/MainWindow.cs" Line="6" Column="1" />
+      <File FileName="PCategoria/CategoriaView.cs" Line="23" Column="4" />
+      <File FileName="PCategoria/Program.cs" Line="20" Column="24" />
+      <File FileName="PSerpisAd/App.cs" Line="4" Column="19" />
+      <File FileName="PSerpisAd/DbCommandExtensions.cs" Line="3" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
-          <Node name="PCategoria" expanded="True" />
+        <State expanded="True">
+          <Node name="PCategoria" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="PSerpisAd" expanded="True" selected="True">
+            <Node name="References" expanded="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
