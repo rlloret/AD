@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PCategoria/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../PCategoria/PCategoria/MainWindow.cs">
     <Files>
-      <File FileName="../PserpisAd/PserpisAd/App.cs" Line="20" Column="38" />
-      <File FileName="../PserpisAd/PserpisAd/DbCommandExtensions.cs" Line="1" Column="1" />
-      <File FileName="PCategoria/MainWindow.cs" Line="16" Column="2" />
+      <File FileName="PserpisAd/App.cs" Line="20" Column="38" />
+      <File FileName="PserpisAd/DbCommandExtensions.cs" Line="1" Column="1" />
+      <File FileName="../PCategoria/PCategoria/MainWindow.cs" Line="16" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
