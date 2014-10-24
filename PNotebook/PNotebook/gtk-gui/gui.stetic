@@ -23,23 +23,13 @@
       </action>
       <action id="ArticuloAction">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Articulo</property>
-        <property name="ShortLabel" translatable="yes">Articulo</property>
-      </action>
-      <action id="CategoraAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Categoría</property>
-        <property name="ShortLabel" translatable="yes">Categoría</property>
-      </action>
-      <action id="ArticuloAction1">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Articulo</property>
-        <property name="ShortLabel" translatable="yes">Articulo</property>
+        <property name="Label" translatable="yes">Artículo</property>
+        <property name="ShortLabel" translatable="yes">Artículo</property>
       </action>
       <action id="CategoriaAction">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Categoria</property>
-        <property name="ShortLabel" translatable="yes">Categoria</property>
+        <property name="Label" translatable="yes">Categoría</property>
+        <property name="ShortLabel" translatable="yes">Categoría</property>
       </action>
     </action-group>
     <property name="MemberName" />
@@ -55,7 +45,7 @@
             <property name="MemberName" />
             <node name="__gtksharp_158_Stetic_Editor_ActionMenuBar" type="Menubar">
               <node type="Menu" action="ArchivoAction">
-                <node type="Menuitem" action="ArticuloAction1" />
+                <node type="Menuitem" action="ArticuloAction" />
                 <node type="Menuitem" action="CategoriaAction" />
               </node>
             </node>
@@ -71,73 +61,11 @@
           <widget class="Gtk.Notebook" id="notebook1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="CurrentPage">1</property>
-            <child>
-              <widget class="Gtk.VBox" id="vbox2">
-                <property name="MemberName" />
-                <property name="Spacing">6</property>
-                <child>
-                  <widget class="Gtk.Toolbar" id="toolbar1">
-                    <property name="MemberName" />
-                    <property name="ShowArrow">False</property>
-                    <node name="__gtksharp_120_Stetic_Editor_ActionToolbar" type="Toolbar">
-                      <node type="Toolitem" action="newAction" />
-                    </node>
-                  </widget>
-                  <packing>
-                    <property name="Position">0</property>
-                    <property name="AutoSize">True</property>
-                    <property name="Expand">False</property>
-                    <property name="Fill">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
-                    <property name="MemberName" />
-                    <property name="ShadowType">In</property>
-                    <child>
-                      <widget class="Gtk.TreeView" id="treeView">
-                        <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="ShowScrollbars">True</property>
-                      </widget>
-                    </child>
-                  </widget>
-                  <packing>
-                    <property name="Position">1</property>
-                    <property name="AutoSize">True</property>
-                  </packing>
-                </child>
-                <child>
-                  <placeholder />
-                </child>
-              </widget>
-            </child>
-            <child>
-              <widget class="Gtk.Label" id="label1">
-                <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Artículo</property>
-              </widget>
-              <packing>
-                <property name="type">tab</property>
-              </packing>
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <widget class="Gtk.Label" id="label2">
-                <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Categoría</property>
-              </widget>
-              <packing>
-                <property name="type">tab</property>
-              </packing>
-            </child>
+            <property name="CurrentPage">-1</property>
           </widget>
           <packing>
             <property name="Position">1</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
           </packing>
         </child>
         <child>

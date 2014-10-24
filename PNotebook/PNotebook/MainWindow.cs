@@ -10,27 +10,41 @@ public partial class MainWindow: Gtk.Window
 
 		ArticuloAction.Activated += delegate{
 
+			addPage (new MyTreeView(),"Articulo");
+
+		};
+		CategoriaAction.Activated += delegate{
+
 			addPage (new MyTreeView(),"Categoria");
 
 		};
-		CategoraAction.Activated += delegate{
 
-			addPage (new MyTreeView(),"Categoria");
-
+		notebook1.SwitchPage += delegate{
+			onPageChanged();
 		};
 
-		notebook1.SwitchPage += delegate {
-			Console.WriteLine("notebook.CurrentPage = {0}", notebook1.CurrentPage);
-			//Captura la pestaña del notebook
-	};
+
+		notebook1.PageRemoved += delegate {
+			Console.WriteLine("notebook1.PageRemoved notebook.CurrentPage = {0}", notebook1.CurrentPage);
+			//SwitchPage//Captura la pestaña del notebook
+		};
 
 
-		addPage (new MyTreeView(), "Articulo2");
-		addPage (new MyTreeView(), "Categoría2");
+
+
+		//addPage (new MyTreeView(), "Articulo2");
+		//addPage (new MyTreeView(), "Categoría2");
 
 		//treeView.AppendColumn ("id", new CellRendererText (), "text", 0);
 		//treeView.AppendColumn ("nombre", new CellRendererText (), "text", 1);
 		//treeView.Model = new ListStore (typeof(long), typeof(string));
+	}
+
+
+	private void onPageChanged(){
+
+		Console.WriteLine("onPageChanged notebook.CurrentPage = {0}", notebook1.CurrentPage);
+
 	}
 
 	private void addPage (Widget widget,string label)
@@ -42,11 +56,12 @@ public partial class MainWindow: Gtk.Window
 		hBox.Add (button);
 		hBox.ShowAll ();
 
-		notebook1.AppendPage (widget, hBox);
+		notebook1.CurrentPage = notebook1.AppendPage (widget, hBox);
 
 		button.Clicked += delegate {
-		
 			widget.Destroy();
+			if (notebook1.CurrentPage == -1)
+				onPageChanged();
 		
 		};
 
