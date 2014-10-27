@@ -60,9 +60,8 @@
     <Reference Include="PserpisAd">
       <HintPath>..\..\PserpisAd\PserpisAd\bin\Debug\PserpisAd.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=20449f9ba87f7ae2">
-      <Private>False</Private>
-      <Package>mysql-connector-net</Package>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\mysql-connector-net-6.9.3-noinstall\v2.0\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
   </ItemGroup>
@@ -79,9 +78,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyTreeView.cs" />
     <Compile Include="ArticuloView.cs" />
-    <Compile Include="gtk-gui\PArticulo.ArticuloView.cs" />
-    <Compile Include="CategoriaView.cs" />
-    <Compile Include="gtk-gui\PArticulo.CategoriaView.cs" />
+    <Compile Include="App.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
