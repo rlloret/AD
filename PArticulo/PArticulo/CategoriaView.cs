@@ -24,23 +24,26 @@ namespace PArticulo
 			IDataReader dataReader = dbCommand.ExecuteReader ();
 			dataReader.Read ();
 
-			//entryNombre.Text = dataReader ["nombre"].ToString ();
+			entryCatCat.Text = dataReader ["nombre"].ToString ();
 
 			dataReader.Close ();
 		}
 
-		protected void OnSaveActionActivated (object sender, EventArgs e)
+		protected void OnSaveActionCatActivated (object sender, EventArgs e)
 		{
 			IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand ();
 			dbCommand.CommandText = String.Format (
 				"update categoria set nombre=@nombre where id={0}", id
 				);
-			//dbCommand.AddParameter ("nombre", entryNombre.Text);
+			dbCommand.AddParameter ("nombre", entryCatCat.Text);
 
 			dbCommand.ExecuteNonQuery ();
 
 			Destroy ();
 		}
+
+
+
 	}
 }
 

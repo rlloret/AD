@@ -11,13 +11,13 @@ namespace PArticulo
 		private global::Gtk.VBox vbox4;
 		private global::Gtk.HBox hbox1;
 		private global::Gtk.Label labelNombreArticulo;
-		private global::Gtk.Entry entry1;
+		private global::Gtk.Entry entryNombre;
 		private global::Gtk.HBox hbox2;
 		private global::Gtk.Label labelCategoriaArticulo;
-		private global::Gtk.Entry entry2;
+		private global::Gtk.Entry entryCategoria;
 		private global::Gtk.HBox hbox3;
 		private global::Gtk.Label labelPrecioArticulo;
-		private global::Gtk.Entry entry3;
+		private global::Gtk.Entry entryPrecio;
 
 		protected virtual void Build ()
 		{
@@ -64,13 +64,13 @@ namespace PArticulo
 			w3.Expand = false;
 			w3.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
-			this.entry1 = new global::Gtk.Entry ();
-			this.entry1.CanFocus = true;
-			this.entry1.Name = "entry1";
-			this.entry1.IsEditable = true;
-			this.entry1.InvisibleChar = '•';
-			this.hbox1.Add (this.entry1);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.entry1]));
+			this.entryNombre = new global::Gtk.Entry ();
+			this.entryNombre.CanFocus = true;
+			this.entryNombre.Name = "entryNombre";
+			this.entryNombre.IsEditable = true;
+			this.entryNombre.InvisibleChar = '•';
+			this.hbox1.Add (this.entryNombre);
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.entryNombre]));
 			w4.Position = 1;
 			this.vbox4.Add (this.hbox1);
 			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.hbox1]));
@@ -91,13 +91,13 @@ namespace PArticulo
 			w6.Expand = false;
 			w6.Fill = false;
 			// Container child hbox2.Gtk.Box+BoxChild
-			this.entry2 = new global::Gtk.Entry ();
-			this.entry2.CanFocus = true;
-			this.entry2.Name = "entry2";
-			this.entry2.IsEditable = true;
-			this.entry2.InvisibleChar = '•';
-			this.hbox2.Add (this.entry2);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.entry2]));
+			this.entryCategoria = new global::Gtk.Entry ();
+			this.entryCategoria.CanFocus = true;
+			this.entryCategoria.Name = "entryCategoria";
+			this.entryCategoria.IsEditable = true;
+			this.entryCategoria.InvisibleChar = '•';
+			this.hbox2.Add (this.entryCategoria);
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.entryCategoria]));
 			w7.Position = 1;
 			this.vbox4.Add (this.hbox2);
 			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.hbox2]));
@@ -118,13 +118,13 @@ namespace PArticulo
 			w9.Expand = false;
 			w9.Fill = false;
 			// Container child hbox3.Gtk.Box+BoxChild
-			this.entry3 = new global::Gtk.Entry ();
-			this.entry3.CanFocus = true;
-			this.entry3.Name = "entry3";
-			this.entry3.IsEditable = true;
-			this.entry3.InvisibleChar = '•';
-			this.hbox3.Add (this.entry3);
-			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.entry3]));
+			this.entryPrecio = new global::Gtk.Entry ();
+			this.entryPrecio.CanFocus = true;
+			this.entryPrecio.Name = "entryPrecio";
+			this.entryPrecio.IsEditable = true;
+			this.entryPrecio.InvisibleChar = '•';
+			this.hbox3.Add (this.entryPrecio);
+			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.entryPrecio]));
 			w10.Position = 1;
 			this.vbox4.Add (this.hbox3);
 			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.vbox4 [this.hbox3]));
@@ -143,6 +143,7 @@ namespace PArticulo
 			this.DefaultWidth = 400;
 			this.DefaultHeight = 300;
 			this.Show ();
+			this.saveAction.Activated += new global::System.EventHandler (this.OnSaveActionActivated);
 		}
 	}
 }
