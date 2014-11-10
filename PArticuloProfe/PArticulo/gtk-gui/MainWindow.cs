@@ -55,9 +55,7 @@ public partial class MainWindow
 		this.notebook1.Name = "notebook1";
 		this.notebook1.CurrentPage = 0;
 		// Container child notebook1.Gtk.Notebook+NotebookChild
-		this.listarticuloview1 = new global::PArticulo.ListArticuloView ();
-		this.listarticuloview1.Events = ((global::Gdk.EventMask)(256));
-		this.listarticuloview1.Name = "listarticuloview1";
+		this.listarticuloview1 = null;
 		this.notebook1.Add (this.listarticuloview1);
 		// Notebook tab
 		this.label1 = new global::Gtk.Label ();
@@ -66,9 +64,7 @@ public partial class MainWindow
 		this.notebook1.SetTabLabel (this.listarticuloview1, this.label1);
 		this.label1.ShowAll ();
 		// Container child notebook1.Gtk.Notebook+NotebookChild
-		this.listcategoriaview1 = new global::PArticulo.ListCategoriaView ();
-		this.listcategoriaview1.Events = ((global::Gdk.EventMask)(256));
-		this.listcategoriaview1.Name = "listcategoriaview1";
+		this.listcategoriaview1 = null;
 		this.notebook1.Add (this.listcategoriaview1);
 		global::Gtk.Notebook.NotebookChild w3 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.listcategoriaview1]));
 		w3.Position = 1;

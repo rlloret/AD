@@ -1,54 +1,61 @@
-using Gtk;
 using System;
-using System.Data;
-
-using SerpisAd;
+using System.Collections.Generic;
+using Gtk;
 
 namespace PArticulo
 {
 	public partial class ArticuloView : Gtk.Window
 	{
-		private object id;
-		public ArticuloView () : base(Gtk.WindowType.Toplevel)	{
-			this.Build ();
-		}
-
-		public ArticuloView(object id) : this() {
-			this.id = id;
-			IDbCommand dbCommand = 
-				App.Instance.DbConnection.CreateCommand ();
-			dbCommand.CommandText = String.Format (
-				"select * from articulo where id={0}", id
-				//Cargar el nombre de la categoria en lugar del id
-				//"select articulo.nombre, articulo.categoria, articulo.precio, categoria.nombre FROM articulo,categoria WHERE articulo.categoria = categoria.id"
-				);
-
-			IDataReader dataReader = dbCommand.ExecuteReader ();
-			dataReader.Read ();
-
-			entryNombre.Text = dataReader ["nombre"].ToString ();
-			entryCategoria.Text = dataReader ["categoria"].ToString ();
-			entryPrecio.Text = dataReader ["precio"].ToString ().Replace(',','.');
-
-			dataReader.Close ();
-		}
-
-		protected void OnSaveActionActivated (object sender, EventArgs e)
+		public ArticuloView () : 
+				base(Gtk.WindowType.Toplevel)
 		{
-			IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand ();
-			dbCommand.CommandText = String.Format (
-				"update articulo set nombre=@nombre,categoria=@categoria,precio=@precio where id={0}", id
-				);
-			dbCommand.AddParameter ("nombre", entryNombre.Text);
-			dbCommand.AddParameter ("categoria", entryCategoria.Text);
-			dbCommand.AddParameter ("precio", entryPrecio.Text.Replace(',','.'));
+			this.Build ();
 
-			dbCommand.ExecuteNonQuery ();
+			List<Articulo> articulos = new List<Articulo> ();
+//			categorias.Add (new Categoria(1,"Uno"));
+//			categorias.Add (new Categoria(2,"Dos"));
+//			categorias.Add (new Categoria(3,"Tres"));
+//			categorias.Add (new Categoria(4,"Cuatro"));
 
-			Destroy ();
+			int categoriaId = 2;
+
+			CellRendererText cellRendererText = new CellRendererText ();
+			comboBoxCategoria.PackStart (cellRendererText, false);
+			comboBoxCategoria.AddAttribute (cellRendererText, "text", 1);
+
+			ListStore listStore = new ListStore (typeof(int),typeof(string));
+			TreeIter initialTreeIter=listStore.AppendValues (0, "<sin asignar>");
+
+			foreach (Articulo articulo in articulos) {
+				TreeIter currentTreeIter=listStore.AppendValues (articulo.Id, articulo.Nombre);
+				if (articulo.Id == categoriaId)
+					initialTreeIter = currentTreeIter;
+
 		}
+
+			comboBoxCategoria.Model = listStore;
+
+			comboBoxCategoria.SetActiveIter (initialTreeIter);
+
+			propertiesAction.Activated += delegate {
+
+				TreeIter treeIter;
+				bool activeIter = comboBox.GetActiveIter (out treeIter);
+				object id = activeIter ? listStore.GetValue (treeIter, 0):0;
+				Console.WriteLine ("id={0}", id);
+			};
 	}
 }
+}
+public class Articulo{
 
+		public Articulo (int id, string nombre){
+			Id = id;
+			Nombre = nombre;
 
+		}
+
+		public int Id {get;set;}
+		public string Nombre {get;set;}
+	}
 

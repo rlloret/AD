@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{53DB0261-2FB4-4083-A856-7E6FC8557AD0}</ProjectGuid>
+    <ProjectGuid>{421F6A49-3C30-4980-BEFB-1D55FD8E0B6C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PArticulo</RootNamespace>
     <AssemblyName>PArticulo</AssemblyName>
@@ -57,8 +57,8 @@
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="Mono.Posix" />
-    <Reference Include="PSerpisAd">
-      <HintPath>..\..\PSerpisAd\PSerpisAd\bin\Debug\PSerpisAd.dll</HintPath>
+    <Reference Include="PserpisAd">
+      <HintPath>..\..\PserpisAd\PserpisAd\bin\Debug\PserpisAd.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.4.3.0, Culture=neutral, PublicKeyToken=20449f9ba87f7ae2">
       <Private>False</Private>
@@ -77,12 +77,15 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MyTreeView.cs" />
+    <Compile Include="ArticuloView.cs" />
+    <Compile Include="gtk-gui\PArticulo.ArticuloView.cs" />
+    <Compile Include="CategoriaView.cs" />
+    <Compile Include="gtk-gui\PArticulo.CategoriaView.cs" />
     <Compile Include="ListArticuloView.cs" />
     <Compile Include="gtk-gui\PArticulo.ListArticuloView.cs" />
     <Compile Include="ListCategoriaView.cs" />
     <Compile Include="gtk-gui\PArticulo.ListCategoriaView.cs" />
-    <Compile Include="ArticuloView.cs" />
-    <Compile Include="gtk-gui\PArticulo.ArticuloView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
