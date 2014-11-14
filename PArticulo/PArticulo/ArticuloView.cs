@@ -37,13 +37,13 @@ namespace PArticulo
 
 			comboBoxCategoria.SetActiveIter (initialTreeIter);
 
-			propertiesAction.Activated += delegate {
-
-				TreeIter treeIter;
-				bool activeIter = comboBox.GetActiveIter (out treeIter);
-				object id = activeIter ? listStore.GetValue (treeIter, 0):0;
-				Console.WriteLine ("id={0}", id);
-			};
+//			propertiesAction.Activated += delegate {
+//
+//				TreeIter treeIter;
+//				bool activeIter = comboBox.GetActiveIter (out treeIter);
+//				object id = activeIter ? listStore.GetValue (treeIter, 0):0;
+//				Console.WriteLine ("id={0}", id);
+//			};
 	}
 }
 }
