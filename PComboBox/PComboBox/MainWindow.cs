@@ -1,6 +1,5 @@
 using Gtk;
 using System;
-using System.Data;
 
 using SerpisAd;
 
@@ -10,13 +9,17 @@ public partial class MainWindow: Gtk.Window
 	{
 		Build ();
 
-		new ComboBoxHelper (comboBox, 4, "select id,nombre from categoria");
+		//new ComboBoxHelper (comboBox, (ulong)7, "select id, nombre from categoria");
+		//comboBox.Fill(ulong)7,"select id, nombre from categoria";//Combobox Extensions
+		ComboBoxHelper comboBoxHelper = new ComboBoxHelper();//Sintaxis fluida
+		comboBoxHelper
+			.ComboBox (comboBox)
+			//.Id ((ulong)3)
+			.SelectSql ("select id, nombre from categoria")
+			.Init ();
 
 		propertiesAction.Activated += delegate {
-
 			Console.WriteLine("id={0}", comboBox.GetId());
-
-
 		};
 
 	}
