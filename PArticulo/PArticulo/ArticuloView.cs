@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Gtk;
+using System.Data;
+using SerpisAd;
 
 namespace PArticulo
 {
@@ -12,10 +14,6 @@ namespace PArticulo
 			this.Build ();
 
 			List<Articulo> articulos = new List<Articulo> ();
-//			categorias.Add (new Categoria(1,"Uno"));
-//			categorias.Add (new Categoria(2,"Dos"));
-//			categorias.Add (new Categoria(3,"Tres"));
-//			categorias.Add (new Categoria(4,"Cuatro"));
 
 			int categoriaId = 2;
 
@@ -37,14 +35,23 @@ namespace PArticulo
 
 			comboBoxCategoria.SetActiveIter (initialTreeIter);
 
-//			propertiesAction.Activated += delegate {
-//
-//				TreeIter treeIter;
-//				bool activeIter = comboBox.GetActiveIter (out treeIter);
-//				object id = activeIter ? listStore.GetValue (treeIter, 0):0;
-//				Console.WriteLine ("id={0}", id);
-//			};
 	}
+		protected void OnSaveActionActivated (object sender, EventArgs e)
+		{
+//			IDbCommand dbCommand = App.Instance.DbConnection.CreateCommand ();
+//			dbCommand.CommandText = String.Format (
+//				"update articulo set nombre=@nombre,categoria=@categoria,precio=@precio where id={0}", id
+//				);
+//			dbCommand.AddParameter ("nombre", entryNombre.Text);
+//			dbCommand.AddParameter ("categoria", comboBoxCategoria);
+//			dbCommand.AddParameter ("precio", spinButtonPrecio.Text.Replace(',','.'));
+//
+//			dbCommand.ExecuteNonQuery ();
+//
+//			Destroy ();
+		}
+
+
 }
 }
 public class Articulo{

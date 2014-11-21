@@ -63,6 +63,9 @@ namespace PArticulo
 			}
 			w1.SetUiManager (UIManager);
 			this.Hide ();
+			this.refreshAction.Activated += new global::System.EventHandler (this.OnRefreshActionActivated);
+			this.addAction.Activated += new global::System.EventHandler (this.OnAddActionActivated);
+			this.deleteAction.Activated += new global::System.EventHandler (this.OnDeleteActionActivated);
 		}
 	}
 }

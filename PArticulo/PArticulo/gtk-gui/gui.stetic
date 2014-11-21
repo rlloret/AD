@@ -6,6 +6,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../../../PserpisAd/PserpisAd/bin/Debug/PserpisAd.dll" />
     <widget-library name="../bin/Debug/PArticulo.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="400 300">
@@ -118,16 +119,19 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-refresh</property>
+        <signal name="Activated" handler="OnRefreshActionActivated" />
       </action>
       <action id="addAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-add</property>
+        <signal name="Activated" handler="OnAddActionActivated" />
       </action>
       <action id="deleteAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-delete</property>
+        <signal name="Activated" handler="OnDeleteActionActivated" />
       </action>
       <action id="editAction">
         <property name="Type">Action</property>
@@ -188,16 +192,19 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-refresh</property>
+        <signal name="Activated" handler="OnRefreshActionActivated" />
       </action>
       <action id="addAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-add</property>
+        <signal name="Activated" handler="OnAddActionActivated" />
       </action>
       <action id="deleteAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-delete</property>
+        <signal name="Activated" handler="OnDeleteActionActivated" />
       </action>
       <action id="editAction">
         <property name="Type">Action</property>
@@ -258,6 +265,7 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-save</property>
+        <signal name="Activated" handler="OnSaveActionActivated" />
       </action>
     </action-group>
     <property name="MemberName" />
@@ -271,7 +279,7 @@
           <widget class="Gtk.Toolbar" id="toolbar2">
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
-            <node name="__gtksharp_78_Stetic_Editor_ActionToolbar" type="Toolbar">
+            <node name="toolbar2" type="Toolbar">
               <node type="Toolitem" action="saveAction" />
             </node>
           </widget>

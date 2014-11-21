@@ -36,8 +36,6 @@ namespace PArticulo
 				fillListStore();
 			};
 
-			//TODO resto de actions
-
 		}
 
 		private void selectionChanged (object sender, EventArgs e) {
@@ -58,6 +56,40 @@ namespace PArticulo
 				listStore.AppendValues (id, nombre);
 			}
 			dataReader.Close ();
+		}
+
+		protected void OnRefreshActionActivated (object sender, EventArgs e)
+		{
+			ListAll.Refresh(listStore);
+			fillListStore ();
+		}
+
+
+
+		protected void OnDeleteActionActivated (object sender, EventArgs e)
+		{
+//			MessageDialog messageDialog = new MessageDialog (
+//				this,
+//				DialogFlags.Modal,
+//				MessageType.Question,
+//				ButtonsType.YesNo,
+//				"¿Quieres eliminar el registro?"
+//				);
+//			messageDialog.Title = "Estás seguro";
+//			ResponseType response = (ResponseType) messageDialog.Run ();
+//			messageDialog.Destroy ();
+//
+//			if (response != ResponseType.Yes)
+//				return;
+//			else
+				ListAll.Delete (treeView,listStore,dbConnection,"delete from categoria where id={0}");
+		}
+
+
+
+		protected void OnAddActionActivated (object sender, EventArgs e)
+		{
+			ListAll.Add(dbConnection,"insert into categoria (nombre) values ('Nueva Categoria')");
 		}
 
 	}

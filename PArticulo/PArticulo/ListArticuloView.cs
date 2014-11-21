@@ -23,7 +23,6 @@ namespace PArticulo
 			treeView.AppendColumn ("id", new CellRendererText (), "text", 0);
 			treeView.AppendColumn ("nombre", new CellRendererText (), "text", 1);
 			treeView.AppendColumn ("categoria", new CellRendererText (), "text", 2);
-			//articuloTreeView.AppendColumn ("precio", new CellRendererText (), "text", 3);
 			treeView.AppendColumn ("precio", new CellRendererText (), 
 			                               new TreeCellDataFunc (delegate(TreeViewColumn tree_column, CellRenderer cell, 
 			                               TreeModel tree_model, TreeIter iter) {
@@ -49,7 +48,6 @@ namespace PArticulo
 
 			};
 
-			//TODO resto de actions
 		}
 		private void selectionChanged (object sender, EventArgs e) {
 			Console.WriteLine ("selectionChanged");
@@ -72,6 +70,38 @@ namespace PArticulo
 				listStore.AppendValues (id, nombre, categoria, precio);
 			}
 			dataReader.Close ();
+		}
+
+		protected void OnRefreshActionActivated (object sender, EventArgs e)
+		{
+			ListAll.Refresh(listStore);
+			fillListStore ();
+		}
+
+
+
+		protected void OnDeleteActionActivated (object sender, EventArgs e)
+		{
+//			MessageDialog messageDialog = new MessageDialog (
+//				this,
+//				DialogFlags.Modal,
+//				MessageType.Question,
+//				ButtonsType.YesNo,
+//				"¿Quieres eliminar el registro?"
+//				);
+//			messageDialog.Title = "Estás seguro";
+//			ResponseType response = (ResponseType) messageDialog.Run ();
+//			messageDialog.Destroy ();
+//
+//			if (response != ResponseType.Yes)
+//				return;
+//			else
+			ListAll.Delete (treeView,listStore,dbConnection,"delete from articulo where id={0}");
+		}
+
+		protected void OnAddActionActivated (object sender, EventArgs e)
+		{
+			ListAll.Add (dbConnection,"insert into articulo (nombre,categoria,precio) values ('NuevoArticulo','1','00.00')");
 		}
 
 	}
