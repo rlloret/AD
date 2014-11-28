@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{421F6A49-3C30-4980-BEFB-1D55FD8E0B6C}</ProjectGuid>
+    <ProjectGuid>{FBA2DB05-7C76-449E-B672-723DE13A63D9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PArticulo</RootNamespace>
-    <AssemblyName>PArticulo</AssemblyName>
+    <RootNamespace>PReflection</RootNamespace>
+    <AssemblyName>PReflection</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,13 +57,6 @@
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="Mono.Posix" />
-    <Reference Include="PserpisAd">
-      <HintPath>..\..\PserpisAd\PserpisAd\bin\Debug\PserpisAd.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>..\..\..\mysql-connector-net-6.9.3-noinstall\v2.0\MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -76,9 +69,14 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MyTreeView.cs" />
-    <Compile Include="ArticuloView.cs" />
-    <Compile Include="App.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="Articulo.cs" />
+    <Compile Include="EntityAttribute.cs" />
+    <Compile Include="IdAttribute.cs" />
+    <Compile Include="ValidationAttribute.cs" />
+    <Compile Include="NotBlankAttribute.cs" />
+    <Compile Include="ErrorInfo.cs" />
+    <Compile Include="Validator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
