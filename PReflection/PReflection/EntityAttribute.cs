@@ -2,15 +2,11 @@ using System;
 
 namespace PReflection
 {
-	public class EntityAttribute: Attribute{
-
-		public EntityAttribute(){
-
-			Console.WriteLine ("EntityAttribute constructor");
-
+	public class EntityAttribute : Attribute {
+		public EntityAttribute() {
+			Console.WriteLine("EntityAttribute constructor");
 		}
-		public String TableName{ get; set;}
-
+		public string TableName { get; set; }
 	}
 }
 

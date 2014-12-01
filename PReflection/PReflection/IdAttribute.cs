@@ -2,9 +2,7 @@ using System;
 
 namespace PReflection
 {
-	public class IdAtribute: Attribute{
-
-
+	public class IdAttribute : Attribute {
 	}
 }
 

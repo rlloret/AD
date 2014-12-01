@@ -4,26 +4,23 @@ using System.Reflection;
 
 namespace PReflection
 {
-	public static class Validator{
-
-		public static ErrorInfo[] Validate(object obj){
-
+	public static class Validator
+	{
+		public static ErrorInfo[] Validate(object obj) {
 			List<ErrorInfo> errorInfoList = new List<ErrorInfo> ();
 			Type type = obj.GetType ();
 			FieldInfo[] fields = type.GetFields (BindingFlags.Instance | BindingFlags.NonPublic);
-				foreach (FieldInfo FieldInfo in fields)
-					if (FieldInfo.IsDefined(typeof(ValidationAttribute), true){
-
-					ValidationAttribute calidationAttribute = (ValidationAttribute)Attribute.GetCustomAttribute(type, typeof (ValidationAttribute));
-					object value = fields.GetValue(obj);
-					string message = ValidationAttribute.Validate (value);
+			foreach (FieldInfo field in fields) 
+				if (field.IsDefined (typeof(ValidationAttribute), true)) {
+					ValidationAttribute validationAttribute =
+					(ValidationAttribute)Attribute.GetCustomAttribute (field, typeof(ValidationAttribute), true);
+					object value = field.GetValue (obj);
+					string message = validationAttribute.Validate (value);
 					if (message != null)
-						errorInfoList.Add(new ErrorInfo(fields.Name, mnessage));
+						errorInfoList.Add( new ErrorInfo(field.Name, message));
 				}
-
-				return errorInfoList.ToArray();
-			}
-	
+			return errorInfoList.ToArray ();
+		}
 	}
 }
 
